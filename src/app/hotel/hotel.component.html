@@ -1,0 +1,81 @@
+<div class="background-image"></div>
+
+<div class="hotel-container">
+  
+  <!-- Adding a hotel -->
+  <div class="button-add">
+    <button mat-raised-button (click)="toggleForm()" [class.close-button]="showForm">
+      {{ showForm ? 'X' : 'Add Hotel' }}
+    </button>
+  </div>
+    <div *ngIf="showForm" class="hotel-form">
+      <div class="hotelform-content">
+      <form (submit)="submitForm()">
+              
+        <div class="inputfield-container">
+        <div class="inputfield1">
+        <label for="hotelName">Hotel Name:</label>
+        <input type="text" id="hotelName" name="hotelName" [(ngModel)]="newHotel.hotelName" required>
+        </div>
+
+        <div class="inputfield2">
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" [(ngModel)]="newHotel.location" required>
+       </div>
+      </div>
+
+      <!-- Adding room types to the hotel -->
+        <div *ngFor="let roomType of roomTypes; let i = index" class="roomtype-box">
+          <div class="input-container">
+            <label for="roomTypeName{{i}}">Room Type Name:</label>
+            <input type="text" id="roomTypeName{{i}}" name="roomTypeName{{i}}" [(ngModel)]="roomType.roomTypeName" required>
+          </div>
+          <div class="input-container">
+            <label for="price{{i}}">Price:</label>
+            <input type="number" id="price{{i}}" name="price{{i}}" [(ngModel)]="roomType.price" required>
+          </div>
+          <div class="input-container">
+            <label for="numRooms{{i}}">No. of Rooms:</label>
+            <input type="number" id="numRooms{{i}}" name="numRooms{{i}}" [(ngModel)]="roomType.numberOfRooms" required>
+          </div>
+          <div class="input-container">
+            <label for="maxAdults{{i}}">Max Adults:</label>
+            <input type="number" id="maxAdults{{i}}" name="maxAdults{{i}}" [(ngModel)]="roomType.maxAdults" required>
+          </div>
+
+          <div class="button-remove">
+          <button mat-mini-fab type="button" (click)="removeRoomType(i)"><mat-icon>delete</mat-icon></button>
+        </div>
+        <div class="button-addroomtype">
+          <button mat-mini-fab type="button" (click)="addRoomType()"><mat-icon>library_add</mat-icon></button>
+        </div>
+        </div>
+
+      <div class="button-submit">
+        <button mat-raised-button type="submit">Submit</button>
+      </div>
+      </form>
+    </div>
+    </div>
+  
+  <!-- Hotel cards -->
+  <h2>- Hotels -</h2>
+  <div class="hotel-table">
+  <ng-container *ngFor="let hotel of hotels; let i = index">
+    <div class="hotel-card" (click)="navigateToHotelDetails(hotel)">
+      <img src="../../assets/images/hotels/hotel-1.jpg">
+      <div class="hoteldetails">
+        <div>
+          <strong>Hotel Name:</strong> {{ hotel.hotelName }}
+        </div>
+        <div>
+          <strong>Location:</strong> {{ hotel.location }}
+        </div>
+      </div>
+    </div>
+      <ng-container *ngIf="(i + 1) % 3 === 0 || i === hotel.length - 1"></ng-container>
+   </ng-container>
+  </div>
+
+</div>
+  

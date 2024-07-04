@@ -1,0 +1,65 @@
+<div class="background-image"></div>
+
+<div class="searchpage">
+
+
+    <!-- Search bar container -->
+    <div  class="search-container">
+    <div *ngIf="showSearchBar" class="search-bar-container">
+    <div class="heading">-Search-</div>
+      <form (ngSubmit)="search()">
+    
+        <label for="checkInDate">Check-in Date:</label>
+        <input matInput type="date" id="checkInDate" name="checkInDate" [(ngModel)]="checkInDate" required>
+        <br>    
+   
+        <label for="numNights">Number of Nights:</label>
+        <input type="number" id="numNights" name="numNights" [(ngModel)]="numNights" required>
+        <br>    
+        
+        <div *ngFor="let guest of guests; let i = index" class="guest-box">
+          
+            <div class="input-container">
+                <label for="numAdults{{i}}">No. of Adults: </label>
+                <input type="number" id="numAdults{{i}}" name="numAdults{{i}}" [(ngModel)]="guest.numAdults" required>
+            </div>
+
+            <div class="input-container">
+                <label for="numRooms{{i}}">No. of Rooms: </label>
+                <input type="number" id="numRooms{{i}}" name="numRooms{{i}}" [(ngModel)]="guest.numRooms" required>
+            </div>
+            
+            <div class="button-delete">
+            <button mat-mini-fab type="button" (click)="removeGuest(i)"><mat-icon>delete</mat-icon></button>
+            </div>
+            
+            <div class="button-add">
+                <button mat-mini-fab type="button" (click)="addGuest()"><div class="plus"><mat-icon>+</mat-icon></div></button>
+            </div>
+        </div>
+        <br>
+    <div class="button-search">
+        <button mat-raised-button type="submit" class="search-button">Search</button>
+    </div>
+    </form>
+    </div>
+    </div>
+    <br><br><br>
+
+    <!-- Search result cards -->
+    <div *ngFor="let result of searchResults" class="card">
+
+        <h2>{{ result.hotelName }}</h2>
+
+        <img src="../../assets/images/room/room-3.jpg">
+
+        <p><strong>Room Type: </strong>{{ result.roomType }}</p>
+        <p><strong>Price: </strong>Rs. {{ result.markedUpPrice | number:'1.2-2' }}</p>
+        <div class="availability">
+        <p>{{ result.availability }}</p>
+        
+    </div>
+      </div>
+
+</div>
+

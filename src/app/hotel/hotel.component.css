@@ -1,0 +1,243 @@
+.hotel-container {
+    margin-top: 100px;
+  }
+
+.background-image {
+    background-image: url('../../assets/images/hotels/hotel-2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    filter: blur(2px);
+    margin-top: -100px;
+}
+
+.background-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(33, 41, 10, 0.644);
+  z-index: -1;
+}
+.hotel-form {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 0px;
+    padding-right: 20px;
+    border: 2px solid #0206ff;
+    border-radius: 8px;
+    background-color: #0206ff42;
+}
+  
+.hotelform-content form{
+  display: flex;
+  flex-direction: column;
+}
+
+.inputfield-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.inputfield-container input,label{
+  display: flex;
+  justify-content: center;
+  margin-left: -5px;
+}
+
+
+.inputfield1{
+  margin-left: 30px;
+  width: 250px;
+}
+
+.inputfield2{
+  margin-left: 45px;
+  width: 250px;
+}
+
+.roomtype-box{
+  display: flex;
+  flex-direction: row;
+  margin-left: -20px;
+}
+
+.hotel-form label {
+    margin-bottom: 8px;
+    color: white;
+}
+  
+.hotel-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 2px solid #009ea3;
+    border-radius: 5px;
+}
+  
+  .hotel-form .input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 45px;
+    margin-top: 15px;
+    width: 250px;
+}
+
+.hotel-form button {
+    background-color: #f52525;
+    color: #fff;
+    margin-left: 18px;
+    margin-top: 39px;
+}
+
+  .hotel-form button:hover {
+    background-color: #ac0505;
+  }
+  
+.button-submit{
+    margin-left: 5PX;
+}
+  
+.button-submit button{
+    margin-top: 23px;
+    margin-left: 25px;
+    box-shadow: none;
+    background-color: #00c9bf;
+    color: #fff;
+}
+
+.button-submit button:hover{
+    background-color: #0034a3;
+}
+
+.button-add button{
+    background-color: #0080e9;
+    color: #ffffff;
+}
+
+.button-add button:hover{
+    background-color: #0034a3;
+}
+
+.button-addroomtype button{
+    background-color: #5de900;
+    color: #ffffff;
+    margin-left: 8px;
+}
+
+.button-addroomtype button:hover{
+    background-color: #00a300;
+}
+
+.button-add button.close-button {
+    background-color: #eb1700;
+    color: #ffffff;
+}
+  
+.button-add button.close-button:hover {
+    background-color: #b91604;
+}
+ 
+h2{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: -7px;
+}
+
+.hotel-card {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fffcc4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 300px;
+}
+  
+.hotel-card div{
+    margin-bottom: 10px;
+}
+
+.hotel-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.hoteldetails{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+  
+.hotel-card .card-content {
+    padding: 10px;
+}
+  
+.hotel-card div {
+    margin-bottom: 10px;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: inline-block;
+}
+  
+  
+.modal label {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+
+.modal input{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.button-add{
+  display: flex;
+  margin-left: 2.1%;
+}
+
+.hotel-table {
+  border: 2px solid #0252ff;
+  background-color: #0252ff3d;
+  border-radius: 10px;
+  padding-left: 20px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hotel-card {
+  flex: 0 0 calc(33.33% - 20px);
+  box-sizing: border-box;
+  border: 1px solid #8002c9;
+  padding: 10px;
+  margin-bottom: 20px;
+}

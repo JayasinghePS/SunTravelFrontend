@@ -1,0 +1,110 @@
+<div class="background-image"></div>
+<div class="contract-container">
+  
+  <!-- Add a contract -->
+  <div class="button-add">
+    <button mat-raised-button (click)="toggleForm()" [class.close-button]="showForm">
+      {{ showForm ? 'X' : 'Add Contract' }}
+    </button>
+    </div>
+    
+    <div *ngIf="showForm" class="contract-form">
+      
+      <form (submit)="submitForm()">
+
+        <div class="inputfield">
+          <label for="hotelId">Hotel:</label>
+          <select id="hotelId" name="hotelId" [(ngModel)]="newContract.hotelId" required>
+            <option *ngFor="let hotel of hotels" [value]="hotel.hotelId">{{ hotel.hotelName }}</option>
+          </select>
+        </div>
+        
+        <div class="inputfield">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" [(ngModel)]="newContract.startDate" required [min]="minStartDate">
+        </div>
+
+        <div class="inputfield">
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" [(ngModel)]="newContract.endDate" required [min]="minEndDate">
+        </div>
+
+        <div class="inputfield">
+        <label for="markupPercentage">Markup Percentage:</label>
+        <input type="number" id="markupPercentage" name="markupPercentage" [(ngModel)]="newContract.markupPercentage" required>
+        </div>
+
+      <div class="button-submit">
+        <button mat-mini-fab type="submit"><mat-icon>file_upload</mat-icon></button>
+      </div>
+      </form>
+     
+    </div>
+  
+
+    <!--Cards with details -->
+    <h2>- Contracts -</h2>
+    <div class="contract-table">
+      <ng-container *ngFor="let contract of contracts; let i = index">
+        <div class="contract-card">
+          <div class="contractdetails">
+  <div>
+    <strong>Start Date:</strong> {{ contract.startDate| date:'yyyy/MM/dd'}}
+  </div>
+  <div>
+    <strong>End Date:</strong> {{ contract.endDate| date:'yyyy/MM/dd' }}
+  </div>
+  <div>
+    <strong>Markup Percentage:</strong> {{ contract.markupPercentage }}%
+  </div>
+  <div>
+    <strong>Hotel:</strong> {{getHotelName(contract.hotelId) }}
+  </div>
+  </div>
+  <div class="cardbuttons">
+    <div class="button-edit">
+    <button mat-mini-fab (click)="editContract(contract)"><mat-icon>edit</mat-icon></button>
+  </div>
+  <div class="button-delete">
+    <button mat-mini-fab (click)="deleteContract(contract)"><mat-icon>delete</mat-icon></button>
+  </div>
+  </div>
+</div>
+
+
+  <!--Edit form-->
+  <div *ngIf="editedContract.contractId === contract.contractId" class="modal">
+    
+    <form (submit)="submitForm()" class="edit-form">
+      <h3>Edit Contract ({{getHotelName(contract.hotelId) }})</h3>
+      <div class="form-group">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" [(ngModel)]="editedContract.startDate" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" [(ngModel)]="editedContract.endDate" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="markupPercentage">Markup Percentage:</label>
+        <input type="number" id="markupPercentage" name="markupPercentage" [(ngModel)]="editedContract.markupPercentage" required>
+      </div>
+  
+      <div class="button-group">
+        <div class="button-save">
+        <button mat-raised-button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+      <div class="button-cancel">
+        <button mat-raised-button (click)="closeEditForm()" class="btn btn-secondary">Cancel</button>
+      </div>
+      </div>
+    </form>
+  </div>
+<ng-container *ngIf="(i + 1) % 3 === 0 || i === contracts.length - 1"></ng-container>
+  </ng-container>
+</div>
+</div>
+
+  

@@ -1,0 +1,163 @@
+body, h1, h2, p, form, label, input, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.heading{
+    font-size:x-large;
+    justify-content: center;
+    display:flex;
+    margin-top: -10px;
+    margin-bottom: 13px;
+}
+
+.search-container {
+    padding-top: 12.3%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar-container {
+    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    right: 50%;
+    width: 350px;
+    background-color: rgb(252, 251, 220);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(255, 238, 0);
+    border-color: rgb(255, 247, 0);
+}
+
+
+.background-image {
+    background-image: url('../../assets/images/background/bg-6.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    filter: blur(2.5px);
+}
+
+
+.background-image::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.377);
+    z-index: -1;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input, button {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ffd000;
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+.card {
+    position:relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    height: 250px;
+    width: 300px;
+}
+
+.card img{
+    width:  300px;
+    height: 150px;
+}
+
+
+.card p{
+    margin-top: 3px;
+}
+
+.availability{
+    color: #13e000;
+    margin-left: 220px;
+    margin-top: 8px;
+}
+
+.guest-box {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    margin-bottom: 10px;
+}
+
+.guest-box button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.button-add button{
+    background-color: #39db34;
+    color: white;
+    margin-top: 12px;
+}
+
+.button-search{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -15px;
+}
+
+.button-search button{
+    background-color: #e2a32e;
+    color: #ffffff;
+}
+
+.input-container{
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-container input {
+    width: 100px;
+}
+
+.button-delete {
+    flex-shrink: 0;
+    margin-top: 12px;
+}
+
+.plus{
+    margin-bottom: 6px;
+}
+

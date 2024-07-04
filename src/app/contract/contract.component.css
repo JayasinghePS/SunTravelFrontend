@@ -1,0 +1,259 @@
+.contract-container {
+    margin-top: 100px;
+  }
+
+.background-image {
+    background-image: url('../../assets/images/background/bg-11.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    filter: blur(2px);
+    margin-top: -100px;
+}
+
+.background-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(33, 41, 10, 0.644);
+  z-index: -1;
+}
+
+  
+  .contract-form {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 0px;
+    padding-right: 20px;
+    border: 2px solid #00ad1d;
+    border-radius: 8px;
+    background-color: #0192194f;
+  }
+  
+  .contract-form form {
+    display: flex;
+  }
+  
+  .contract-form label {
+    margin-bottom: 8px;
+    color: white;
+  }
+
+  .contract-form input,
+  .contract-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  
+  .contract-form .inputfield {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 50px;
+    width: 250px;
+  }
+
+  .button-submit button{
+    margin-top: 23px;
+    margin-left: 25px;
+    box-shadow: none;
+    background-color: #5bff29;
+    color: #fff;
+  }
+.button-add button{
+  background-color: #2ab300;
+  color: #ffffff;
+}
+
+
+.button-add button.close-button {
+  background-color: #e74c3c;
+}
+
+.button-add button.close-button:hover {
+  background-color: #ff1f06; 
+}
+
+  
+  .contract-form button:hover {
+    background-color: #b2b41c;
+  }
+  
+  h2{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: -7px;
+  }
+  .contract-card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex: 0 0 calc(33.33% - 20px);
+    padding: 10px;
+    border: 2px solid #0d7000;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #fffcc4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 200px;
+  }
+  
+  .contract-card div {
+    margin-bottom: 10px;
+  }
+
+  .cardbuttons {
+    margin-left: 76%;
+    flex-direction: row;
+    display:flex;
+    height: 30px;
+  }
+
+  .cardbuttons button{
+    margin-top: 8px;
+  }
+
+  .contractdetails{
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .button-delete button {
+    margin-left: 7.5px;
+    background-color: #ff1900;
+    box-shadow: none;
+  }
+
+  .contract-button div{
+    flex-direction: row;
+    display: flex;
+  }
+  
+  .button-edit button{
+    margin-left: 0px;
+    background-color: #029bc9;
+    box-shadow: none;
+  }
+  
+  .button-edit button:hover{
+    background-color: #0237c9;
+  }
+  .button-delete button:hover{
+    background-color: #7c0000;
+  }
+
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.modal label {
+  display: block; 
+  margin-bottom: 5px; 
+}
+
+.modal input,
+.modal select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+.example-card {
+  max-width: 400px;
+}
+
+.button-add{
+  display: flex;
+  margin-left: 2%;
+}
+
+
+.contract-table {
+  border: 2px solid #0aff02;
+  background-color: #0aff022a;
+  border-radius: 10px;
+  padding-left: 20px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+
+.edit-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  width: 300px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #7cff01;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-save button{
+  background-color: #3498db;
+  color: #fff;
+}
+
+.button-cancel button {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+.edit-form h3{
+  margin-top: -10px;
+  margin-bottom: 15px;
+  color: #34b600;
+}

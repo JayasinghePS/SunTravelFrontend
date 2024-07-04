@@ -1,0 +1,113 @@
+<div class="background-image"></div>
+
+<!-- Color of the nav bar -->
+<div class="headercolor"></div>
+
+<div class="hotel-details-container">
+
+
+  <div class="header-one">
+    <h1>{{ hotels.hotelName }}</h1>
+  </div>
+    <br><br>
+
+    <!-- Adding a Room Type -->
+    <div class="button-add">
+    <button mat-raised-button (click)="ToogleRoomType()" [class.close-button]="showAddRoomTypeForm">
+        {{ showAddRoomTypeForm ? 'X' : 'Add Room Type' }}
+    </button>
+    </div>
+
+    <div *ngIf="showAddRoomTypeForm" class="add-room-type-form">
+
+    <form (submit)="submitNewRoomType()">
+
+    <div class="inputfield">
+      <label for="newRoomTypeName">Room Type:</label>
+      <input type="text" id="newRoomTypeName" name="newRoomTypeName" [(ngModel)]="newRoomType.roomTypeName" required>
+    </div>
+
+    <div class="inputfield">
+      <label for="newPrice">Price:</label>
+      <input type="number" id="newPrice" name="newPrice" [(ngModel)]="newRoomType.price" required>
+    </div>
+      <div class="inputfield">
+      <label for="newMaxAdults">Max Adults:</label>
+      <input type="number" id="newMaxAdults" name="newMaxAdults" [(ngModel)]="newRoomType.maxAdults" required>
+    </div>
+
+    <div class="inputfield">
+      <label for="newNumberOfRooms">No. of Rooms:</label>
+      <input type="number" id="newNumberOfRooms" name="newNumberOfRooms" [(ngModel)]="newRoomType.numberOfRooms" required>
+    </div>
+
+    <div class="button-submit">
+      <button mat-mini-fab type="submit"><mat-icon>file_upload</mat-icon></button>
+    </div>
+    
+    </form>
+  </div>
+  
+  <div class="room-types">
+      
+    <!-- Room Type cards -->
+    <h2>- Room Types -</h2>
+    <div class="roomtype-allcards">
+        <div *ngFor="let roomType of roomTypes" class="roomtype-card">
+            <div class="roomtypeimage">
+                <img src="../../assets/images/room/room-1.jpg">
+            </div>
+            <div class="roomtypedetails">
+            <p><strong>Room Type:</strong> {{ roomType.roomTypeName }}</p>
+            <p><strong>Price:</strong> {{ roomType.price }}</p>
+            <p><strong>Max Adults:</strong> {{ roomType.maxAdults }}</p>
+            <p><strong>No. of Rooms:</strong> {{ roomType.numberOfRooms }}</p>
+            </div>
+            <div class="room-type-actions">
+                <div class="button-edit">
+            <button mat-mini-fab (click)="editRoomType(roomType)"><mat-icon>edit</mat-icon></button>
+        </div>
+        <div class="button-delete">
+            <button mat-mini-fab (click)="deleteRoomType(roomType.roomTypeId)"><mat-icon>delete</mat-icon></button>
+        </div>
+            </div>
+
+            <!-- Edit form for each room type -->
+            <div class="editform-box">
+            <div *ngIf="roomType.isEditing" class="edit-form">
+                <h3>Edit ({{ roomType.roomTypeName }})</h3>
+            <form (submit)="updateRoomType(roomType.editedRoomTypeId, roomType)">
+            <div class="inputfieldcontainer">
+                <div class="inputfieldrt">
+                  <label for="roomTypeName">Room Type: </label>
+                  <input type="text" id="roomTypeName" name="roomTypeName" [(ngModel)]="roomType.roomTypeName" required>
+                </div>
+                <div class="inputfieldrt">
+                  <label for="price">Price: </label>
+                  <input type="number" id="price" name="price" [(ngModel)]="roomType.price" required>
+                </div>
+                  <div class="inputfieldrt">
+                  <label for="maxAdults">Max Adults: </label>
+                  <input type="number" id="maxAdults" name="maxAdults" [(ngModel)]="roomType.maxAdults" required>
+                </div>
+                  <div class="inputfieldrt">
+                  <label for="numberOfRooms">No. of Rooms: </label>
+                  <input type="number" id="numberOfRooms" name="numberOfRooms" [(ngModel)]="roomType.numberOfRooms" required>
+                </div>
+            </div>
+                <div class="button-save-cancel">
+                <div class="button-save">
+                  <button mat-raised-button type="submit">Save</button>
+                </div>
+                <div class="button-cancel">
+                  <button mat-raised-button type="button" (click)="cancelEdit(roomType)">Cancel</button>
+                </div>
+                </div>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+  

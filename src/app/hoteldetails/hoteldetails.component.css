@@ -1,0 +1,294 @@
+.hotel-details-container {
+    margin-top: 100px;
+}
+
+.headercolor{
+    background: linear-gradient(to right, #756000, #d3ac00);
+    height: 58px;
+    width: 96%;
+    border-radius: 13px;
+    align-items: center;
+    box-shadow: 0 5px 15px rgb(0, 0, 0, .25);
+    padding: 5 20px;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
+    opacity: 1;
+  }
+
+.background-image {
+    background-image: url('../../assets/images/room/room-2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    filter: blur(2px);
+    margin-top: -100px;
+}
+
+.background-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(33, 41, 10, 0.644);
+    z-index: -1;
+  }
+
+.header-one {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: 500;
+    border: 2px solid rgb(189, 160, 0);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.199);
+    margin: 0;
+    padding-left: 560px; 
+    padding-right: 560px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+  .add-room-type-form {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 0px;
+    padding-right: 20px;
+    border: 2px solid #ffaf02;
+    border-radius: 8px;
+    background-color: #ffaf023f;
+  }
+
+  .add-room-type-form form {
+    display: flex;
+  }
+
+  .add-room-type-form label {
+    margin-bottom: 8px;
+    color: white;
+  }
+
+  .add-room-type-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+input,
+select{
+    border: 1px solid #ffaf02;
+    border-radius: 5px;
+}
+
+  .add-room-type-form .inputfield {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 50px;
+    width: 250px;
+  }
+
+  .button-submit button{
+    margin-top: 23px;
+    margin-left: 25px;
+    box-shadow: none;
+    background-color: #ff9b29;
+    color: #fff;
+  }
+
+  .button-add button{
+    background-color: #e99700;
+    color: #ffffff;
+    margin-left: 50px;
+  }
+
+  .button-add button.close-button {
+    background-color: #ff1b02;
+    color: #ffffff;
+  }
+
+  .button-add button.close-button:hover {
+    background-color: #c51905;
+  }
+  
+.add-room-type-form button:hover {
+    background-color: #b2b41c;
+  }
+  
+  h2{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: -7px;
+  }
+
+  .room-types {
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .roomtype-allcards {
+    border: 2px solid #daa700;
+    background-color: #e4661227;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    margin-top: 20px;
+  }
+  
+  .roomtype-card {
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #575757;
+    border-radius: 8px;
+    background-color: #fffcc4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 200px;
+    width: 700px;
+    display: flex;
+    flex-direction: row;
+}
+
+.roomtype-card div {
+    margin-bottom: 10px;
+  }
+
+.roomtypeimage img{
+    width: 300px;
+    height: 200px;
+}
+
+.roomtypedetails {
+  margin-left: 25px;
+  margin-top: -10px;
+  width: 200px;
+}
+
+.roomtypedetails p{
+    width: 300px;
+}
+
+.room-type-actions {
+    margin-top: 160px;
+    margin-left: 80px;
+    display: flex;
+    flex-direction: row;
+}
+
+.button-edit button{
+    background-color: #029bc9;
+
+}
+
+.button-edit button:hover {
+    background-color: #179b94;
+}
+
+.button-delete{
+    margin-left: 10px;
+}
+
+.button-delete button{
+    background-color: #ff0000;
+}
+
+.button-delete button:hover{
+    background-color: #a71414;
+}
+
+.editform-box{
+    display:flex;
+    flex-direction: column;
+    margin-left: 20px;
+    position: relative;
+    padding: 10px;
+    text-align: center;
+}
+
+.inputfieldcontainer{
+    margin-top: -10px;
+}
+
+.inputfieldcontainer label{
+    margin-bottom: 5px;
+}
+
+.edit-form {
+    background-color: white;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-top: -80px;
+    width: 220px;
+    border-radius: 10px;
+}
+
+.edit-form h3{
+    margin-top: 5px;
+    color: #cf6722;
+}
+
+.button-save-cancel{
+    display: flex;
+    flex-direction: row;
+}
+
+.button-save-cancel button{
+    height: 30px;
+    margin-bottom: -10px;
+    margin-top: 8px;
+}
+
+.inputfield{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputfieldrt input{
+height: 30px;
+width: 210px;
+margin-top: 5px;
+}
+
+.button-save button {
+    background-color: #029bc9;
+    color: white;
+    margin-left: 40px;
+}
+
+.button-save button:hover {
+    background-color: #036380;
+    color: white;
+}
+
+.button-cancel button {
+    background-color: #ff0000;
+    color: white;
+    margin-left: 20px;
+}
+
+.button-cancel button:hover {
+    background-color: #a00101;
+    color: white;
+}
