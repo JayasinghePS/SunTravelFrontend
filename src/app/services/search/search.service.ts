@@ -10,6 +10,7 @@ export class SearchService {
 
   constructor(private http: HttpClient) {}
 
+  // Send search request with filters
   search(requestBody: any): Observable<any[]> {
     return this.http.post<any[]>(`${this.baseUrl}/search`, requestBody);
   }

@@ -8,36 +8,43 @@ import { SearchService } from '../services/search/search.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
-  checkInDate: string = '';
-  numNights: number = 1;
-  guests: { numAdults: number, numRooms: number }[] = [{ numAdults: 1, numRooms: 1 }];
-  searchResults: any[] = [];
+  checkInDate: string = '';  // check-in date input
+  numNights: number = 1;    // number of nights stay
 
-  showSearchBar: boolean = true;
+  // dynamic list of guest objects
+  guests: { numAdults: number, numRooms: number }[] = [{ numAdults: 1, numRooms: 1 }];
+
+  searchResults: any[] = [];  // stores API results
+  showSearchBar: boolean = true;  // toggles form visibility
 
   constructor(private router: Router, private searchService: SearchService) {}
 
   
   //Methods
 
+  // add new guest input block
   addGuest() {
     this.guests.push({ numAdults: 1, numRooms: 1 });
   }
 
+  // remove a specific guest block
   removeGuest(index: number) {
     this.guests.splice(index, 1);
   }
 
+  // perform search
   search() {
     
   const currentDate = new Date();
   const inputDate = new Date(this.checkInDate);
 
+  // simple date validation (check whether input after current date)
   if (isNaN(inputDate.getTime()) || inputDate < currentDate) {
     alert('Invalid check-in date. Please select a valid date.');
     return;
   }
 
+    // prepare request payload
     const requestBody = {
       checkInDate: this.checkInDate,
       numberOfNights: this.numNights,
@@ -45,11 +52,12 @@ export class SearchComponent {
       numberOfAdults: this.guests.map(guest => guest.numAdults)
     };
 
+    // call backend API via search service
     this.searchService.search(requestBody)
       .subscribe(data => {
         console.log('Search results:', data);
         this.searchResults = data;
-        this.showSearchBar = false;
+        this.showSearchBar = false;   // hide form after search
 
         if (this.searchResults.length === 0) {
           alert('No results found. Please refresh the page.');

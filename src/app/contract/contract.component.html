@@ -1,3 +1,5 @@
+<!--* we dont normally need to import anything to use the component's variables and function in here html file  -->
+
 <div class="background-image"></div>
 <div class="contract-container">
   
@@ -7,13 +9,15 @@
       {{ showForm ? 'X' : 'Add Contract' }}
     </button>
     </div>
-    
+
+    <!-- toggles contract add form -->
     <div *ngIf="showForm" class="contract-form">
       
       <form (submit)="submitForm()">
 
         <div class="inputfield">
           <label for="hotelId">Hotel:</label>
+          <!-- [(ngModel)] → Uses for two-way binding -->
           <select id="hotelId" name="hotelId" [(ngModel)]="newContract.hotelId" required>
             <option *ngFor="let hotel of hotels" [value]="hotel.hotelId">{{ hotel.hotelName }}</option>
           </select>
@@ -45,6 +49,7 @@
     <!--Cards with details -->
     <h2>- Contracts -</h2>
     <div class="contract-table">
+      <!-- *ngFor="let contract of contracts" → loops and shows contract cards. -->
       <ng-container *ngFor="let contract of contracts; let i = index">
         <div class="contract-card">
           <div class="contractdetails">
@@ -79,6 +84,8 @@
       <h3>Edit Contract ({{getHotelName(contract.hotelId) }})</h3>
       <div class="form-group">
         <label for="startDate">Start Date:</label>
+
+        <!-- [(ngModel)] → binds form input to component variables -->
         <input type="date" id="startDate" name="startDate" [(ngModel)]="editedContract.startDate" required>
       </div>
   

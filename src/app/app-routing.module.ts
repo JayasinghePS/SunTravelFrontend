@@ -7,7 +7,7 @@ import { HotelComponent } from './hotel/hotel.component';
 import { HoteldetailsComponent } from './hoteldetails/hoteldetails.component'; 
 import { SearchComponent } from './search/search.component';
 
-
+// to navigate to the component according to the path given
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'contract-page', component: ContractComponent },

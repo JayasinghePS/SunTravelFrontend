@@ -11,8 +11,10 @@ export class HotelComponent implements OnInit {
   
   showForm = false;
 
-  newHotel: any = {};
-  hotels: any[] = [];
+  newHotel: any = {}; // holds hotel form data
+  hotels: any[] = []; // stores loaded hotels list
+
+  // list of room types for the new hotel
   roomTypes: any[] = [{
     roomTypeName: '',
     price: null,
@@ -28,6 +30,7 @@ export class HotelComponent implements OnInit {
   toggleForm() {
     this.showForm = !this.showForm;
 
+    // Reset form when closed
     if (!this.showForm) {
       this.newHotel = {};
       this.roomTypes = [{
@@ -40,15 +43,17 @@ export class HotelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadHotels();
+    this.loadHotels();  // load hotels on startup
   }
 
   loadHotels() {
+    // Fetch hotels from backend
     this.hotelService.getHotels().subscribe((hotels) => {
       this.hotels = hotels;
     });
   }
 
+  // Add new room type input fields
   addRoomType() {
     this.roomTypes.push({
       roomTypeName: '',
@@ -58,10 +63,12 @@ export class HotelComponent implements OnInit {
     });
   }
 
+  // Remove specific room type input
   removeRoomType(index: number) {
     this.roomTypes.splice(index, 1);
   }
 
+  //adds new hotel with its room types
   submitForm() {
   const newHotelWithRoomTypes = {
     hotelName: this.newHotel.hotelName,
@@ -94,7 +101,7 @@ export class HotelComponent implements OnInit {
 
   }
 
-
+  // Navigate to hotel details page using hotelId
   navigateToHotelDetails(hotel: any) {
     if (hotel && hotel.hotelId) {
       const hotelId = hotel.hotelId;

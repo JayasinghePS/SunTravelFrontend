@@ -1,3 +1,4 @@
+<!--* Dynamic search form with date, nights, adults, rooms -->
 <div class="background-image"></div>
 
 <div class="searchpage">
@@ -21,6 +22,8 @@
           
             <div class="input-container">
                 <label for="numAdults{{i}}">No. of Adults: </label>
+
+                <!-- [(ngModel)] → binds form input to component variables -->
                 <input type="number" id="numAdults{{i}}" name="numAdults{{i}}" [(ngModel)]="guest.numAdults" required>
             </div>
 

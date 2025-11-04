@@ -15,6 +15,8 @@
         <div class="inputfield-container">
         <div class="inputfield1">
         <label for="hotelName">Hotel Name:</label>
+
+        <!-- [(ngModel)] → binds form input to component variables -->
         <input type="text" id="hotelName" name="hotelName" [(ngModel)]="newHotel.hotelName" required>
         </div>
 
@@ -28,6 +30,8 @@
         <div *ngFor="let roomType of roomTypes; let i = index" class="roomtype-box">
           <div class="input-container">
             <label for="roomTypeName{{i}}">Room Type Name:</label>
+
+            <!-- [(ngModel)] → binds form input to component variables -->
             <input type="text" id="roomTypeName{{i}}" name="roomTypeName{{i}}" [(ngModel)]="roomType.roomTypeName" required>
           </div>
           <div class="input-container">
